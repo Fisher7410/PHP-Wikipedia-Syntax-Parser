@@ -1,0 +1,19 @@
+{
+    "name": "fisher7410/php-wikipedia-syntax-parser",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ruslan Gataullin",
+            "email": "fisher7410@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Rise\\WikiParser\\": "src/",
+            "Rise\\WikiParser\\Tests\\": "tests/"
+        }
+    },
+    "require": {}
+}
