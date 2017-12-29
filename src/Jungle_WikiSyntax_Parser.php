@@ -2094,38 +2094,38 @@ class Jungle_WikiSyntax_Parser {
                     'filename' => trim($attachment_details[0], " |"),
                 );
 
-                //if(!empty($attachment_details[1])) {
-                //	$attr_details_attrs = explode("|", $attachment_details[1]);
-                //
-                //	$attachment['attributes'] = array();
-                //
-                //	foreach($attr_details_attrs as $adas_bit) {
-                //		$adas_bit = trim($adas_bit);
-                //
-                //		if(strlen($adas_bit) < 1) {
-                //			continue;
-                //		}
-                //
-                //		if(preg_match("#^[0-9]*?x?[0-9]+px$#si", $adas_bit) || preg_match("#^upright(=(.*)?)?$#si", $adas_bit)) {
-                //			$attachment['attributes']['size'] = $adas_bit;
-                //		} elseif(preg_match("#^(left|right|center|none)$#si", $adas_bit)) {
-                //			$attachment['attributes']['location'] = $adas_bit;
-                //		} elseif(preg_match("#^(thumb|thumbnail|frame|framed|frameless)$#si", $adas_bit)) {
-                //			$attachment['attributes']['type'] = $adas_bit;
-                //		} elseif(preg_match("#^(baseline|middle|sub|super|text\-top|text\-bottom|top|bottom)$#si", $adas_bit)) {
-                //			$attachment['attributes']['alignment'] = $adas_bit;
-                //		} elseif(preg_match("#^alt\s*=(.+?)$#si", $adas_bit, $aba_match)) {
-                //			$attachment['attributes']['alt'] = $aba_match[1];
-                //		} else {
-                //			$attachment['attributes'][] = $adas_bit;
-                //		}
-                //
-                //		if(isset($attachment['attributes'][0]) && !isset($attachment['attributes'][1])) {
-                //			$attachment['attributes']['caption'] = $attachment['attributes'][0];
-                //			unset($attachment['attributes'][0]);
-                //		}
-                //	}
-                //}
+                if(!empty($attachment_details[1])) {
+                	$attr_details_attrs = explode("|", $attachment_details[1]);
+
+                	$attachment['attributes'] = array();
+
+                	foreach($attr_details_attrs as $adas_bit) {
+                		$adas_bit = trim($adas_bit);
+
+                		if(strlen($adas_bit) < 1) {
+                			continue;
+                		}
+
+                		if(preg_match("#^[0-9]*?x?[0-9]+px$#si", $adas_bit) || preg_match("#^upright(=(.*)?)?$#si", $adas_bit)) {
+                			$attachment['attributes']['size'] = $adas_bit;
+                		} elseif(preg_match("#^(left|right|center|none)$#si", $adas_bit)) {
+                			$attachment['attributes']['location'] = $adas_bit;
+                		} elseif(preg_match("#^(thumb|thumbnail|frame|framed|frameless)$#si", $adas_bit)) {
+                			$attachment['attributes']['type'] = $adas_bit;
+                		} elseif(preg_match("#^(baseline|middle|sub|super|text\-top|text\-bottom|top|bottom)$#si", $adas_bit)) {
+                			$attachment['attributes']['alignment'] = $adas_bit;
+                		} elseif(preg_match("#^alt\s*=(.+?)$#si", $adas_bit, $aba_match)) {
+                			$attachment['attributes']['alt'] = $aba_match[1];
+                		} else {
+                			$attachment['attributes'][] = $adas_bit;
+                		}
+
+                		if(isset($attachment['attributes'][0]) && !isset($attachment['attributes'][1])) {
+                			$attachment['attributes']['caption'] = $attachment['attributes'][0];
+                			unset($attachment['attributes'][0]);
+                		}
+                	}
+                }
 
                 $attachments[] = $attachment;
 
